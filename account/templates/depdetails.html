@@ -1,0 +1,34 @@
+{%extends "master.html" %}
+
+{%block 'main'%}
+
+
+
+<table  class="table">
+   
+    
+    <thead>
+        <tr  class="table-info"  >
+            <th>SrNo</th>
+            <th scope="col">Deposit_Amount</th>
+            <th scope="col">Deposit_Type</th>
+            <th scope="col">Deposit_Day</th>
+            <th scope="col">Deposit_Date</th>
+            <th scope="col">Deposit_Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for d in data%}
+        <tr class="table-danger" >
+            <th>{{d.id}}</th>
+            <td >{{d.deposit_amount}}</td>
+            <td>{{d.deposit_type}}</td>
+            <td>{{d.deposit_day}}</td>
+            <td>{{d.deposit_date}}</td>
+            <td>{{d.deposit_description}}</td>
+        </tr>
+        {%endfor%}
+    </tbody>
+
+</table>
+{%endblock%}

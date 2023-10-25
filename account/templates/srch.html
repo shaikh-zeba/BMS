@@ -1,0 +1,51 @@
+
+{%extends 'master.html' %}
+{%block 'main'%}
+<h1>search</h1>
+<table  border="4px" class="table">
+    <thead>
+        <tr  class="table-info">
+            <th >SrNo</th>
+            <th scope="col" >Amount</th>
+            <th  scope="col">Type</th>
+            <th scope="col">Day</th>
+            <th scope="col">Date</th>
+            <th scope="col">Description</th>
+            <th scope="col">data</th>
+            
+        </tr>
+       
+    </thead>
+    <tbody>
+        {%for d in data1%}
+     
+        <tr>
+            <th  class="table-danger" scope="row">{{d.id}}</th>
+            <td class="table-danger">{{d.deposit_amount}}</td>
+            <td class="table-danger">{{d.deposit_type}}</td>
+            <td class="table-danger">{{d.deposit_day}}</td>
+            <td class="table-danger">{{d.deposit_date}}</td>
+            <td class="table-danger">{{d.deposit_description}}</td>
+            <td  class="table-danger">deposit</td>
+            
+        </tr>
+        {%endfor%}
+        {%for w in data2%}
+     
+        <tr >
+            <th  class="table-primary" scope="row">{{w.id}}</th>
+            <td  class="table-primary" >{{w.withdraw_amount}}</td>
+            <td  class="table-primary" >{{w.withdraw_type}}</td>
+            <td   class="table-primary">{{w.withdraw_day}}</td>
+            <td   class="table-primary">{{w.withdraw_date}} </td>
+            <td   class="table-primary">{{w.withdraw_description}} </td>
+            <td   class="table-primary">withdraw</td>
+         
+        </tr>
+        {%endfor%}
+      
+        
+    </tbody>
+</table>
+
+{%endblock%}

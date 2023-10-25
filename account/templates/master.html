@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+{% load static %}
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% comment %} <link rel="stylesheet" href="{% static'css/boost.css'%}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/boost.css' %}">
+    <style>
+      body{
+        background-color:rgb(0, 128, 128);
+        color:white;
+      }
+      header{
+        background-color:rgb(171, 245, 244);
+        color:white;
+        font-size:20px;
+        font-color:white;
+      }
+    </style>
+      
+    
+</head>
+<body>
+  {% comment %} <nav class="cl1">
+    <nav class="cl2" {% endcomment %}
+  <header>
+    
+    <nav class="navbar bg-dark navbar-expand-lg border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+          {%if user.is_authenticated%}
+          <a class="navbar-brand" href="/">{{user}}</a>
+          {%else%}
+          <a class ="navbar-brand" href="/">!User</a>
+          {%endif%}
+
+          <a class="navbar-brand" href="/" style="font-size:20px">Home</a>
+          {% comment %} #home is show every time u use any condition  also appplied a enternal css{% endcomment %}
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+               {% if user.is_authenticated %} 
+              {% comment %} <li  class="nav-item">
+                <a class="nav-link active" href="/">HOME</a>
+  
+              </li> {% endcomment %}
+               
+              
+              {% comment %} #condition is here {% endcomment %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 Deposit
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item"  href="{%url 'dep:add'%}">Add Deposit details</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{%url 'dep:list'%}">Deposit List</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 Withdraw
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{%url 'wit:add'%}">Add Withdraw detail</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{%url 'wit:list'%}">Withdraw List</a></li>
+                </ul>
+              </li>
+
+              
+              <form class="d-flex" role="search"  action="{%url 'acc:srch'%}">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="srch">
+                <button class="btn btn-outline-success" type="submit"> <center>SEARCH</center></button>
+              </form>
+              
+
+              <li>
+              <a class="nav-link active" aria-current="page" href="{%url 'acc:logot'%}">Logout</a>
+              <!-- #create chng here -->
+              </li>
+            
+
+              {% comment %} <li class="nav-item">
+              <a class="nav-link" href="{% url 'inc:add' %}">add income</a> 
+              </li> {% endcomment %}
+      
+
+              {% else %}
+              <li>
+                  <a class="nav-link " href="{% url 'acc:add' %}" >Sing Up
+              </li>
+              
+              
+              <li> 
+                  <a class="nav-link" href="{% url 'acc:log' %}">login</a>
+              </li>
+             {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+  </header>
+
+  <div class="page">
+    {% block 'main' %}
+
+    {% endblock %}
+  </div>
+
+  <footer></footer>
+
+  <script src="{% static 'js/boost.js' %}"></script>
+</body>
+</html>

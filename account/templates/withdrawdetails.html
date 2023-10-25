@@ -1,0 +1,31 @@
+{%extends "master.html" %}
+
+{%block 'main'%}
+
+<table class="table">
+    <thead>
+        <tr class="table-info">
+            <th  >SrNo</th>
+            <th scope="col">withdraw Amount</th>
+            <th scope="col">withdraw Type</th>
+            <th  scope="col">withdraw Day</th>
+            <th  scope="col">withdraw description</th> 
+            <th  scope="col">withdraw Date</th> 
+        </tr>
+    </thead>
+    <tbody>
+        {%for w in data%}
+        <tr  class="table-warning">
+            <th>{{w.id}}</th>
+            <td >{{w.withdraw_amount}}</td>
+            <td >{{w.withdraw_type}}</td>
+            <td >{{w.withdraw_day}}</td>
+            <td >{{w.withdraw_description}} </td>
+            <td >{{w.withdraw_date}} </td>
+         
+        </tr>
+        {%endfor%}
+    </tbody>
+
+</table>
+{%endblock%}

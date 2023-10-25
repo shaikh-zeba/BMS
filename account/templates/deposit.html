@@ -1,0 +1,52 @@
+{%extends 'master.html'%}
+
+
+
+{%block 'main'%}
+<center><h1 class="mt-2 mb-3">Add Deposit Details!!</h1></center>
+<form method="post" >
+    {%csrf_token%}
+
+    {% comment %} <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label" style="font-size:30px">Add Amount</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="inputEmail3" name="amt">
+      </div>
+    </div>
+     {% endcomment %}
+    <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label" style="font-size:30px">Deposit Amount</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="inputEmail3" name="amt">
+      </div>
+    </div>
+    
+    <div class="row mb-3">
+      <label for="inputPassword3" class="col-sm-2 col-form-label" style="font-size:30px">Deposit Type</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputPassword3" name="type">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputPassword3" class="col-sm-2 col-form-label" style="font-size:30px">Day</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPassword3" name="day">
+        </div>
+      </div>
+    
+    <div class="form-floating row mb-3">
+        <textarea class="form-control" placeholder="add description" id="floatingTextarea" name="description"></textarea>
+        <label for="floatingTextarea" style="font-size:20px">Add description</label>
+    </div>
+
+    <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker row mb-3">
+        <label for="example" style="font-size:30px">Date</label>
+        <input placeholder="Select date" type="date" id="example" class="form-control" name="date">
+        
+        <i class="fas fa-calendar input-prefix"></i>
+    </div>
+   
+    <button type="submit" class="btn btn-primary" style="font-size:30px">Add</button>
+  </form>
+{%endblock%}
